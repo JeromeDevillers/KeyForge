@@ -6,17 +6,19 @@ import uiSelectCharacters from "./components/ui/selectCharacters.vue";
 </script>
 
 <template>
-  <div>
+  <div id="appContainer">
     <passwordInput :password="password" />
     <uiLengthSlider @value-change="changeLength" :min="10" :max="60" />
     <span>length: {{ length }}</span>
     <uiSelectCharacters @characters-change="changeCharset" />
-    <fragmentsButton @click="passwordGenerate">
-      <span>generate password</span>
-    </fragmentsButton>
-    <fragmentsButton @click="passwordCopy">
-      <span>Copy</span>
-    </fragmentsButton>
+    <div class="btn-container">
+      <fragmentsButton @click="passwordGenerate">
+        <span>generate</span>
+      </fragmentsButton>
+      <fragmentsButton @click="passwordCopy">
+        <span>copy</span>
+      </fragmentsButton>
+    </div>
   </div>
 </template>
 
@@ -58,4 +60,17 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+// @import "./scss/main.scss";
+#appContainer {
+  background: $bgColor;
+  height: 100vh;
+  width: 100vw;
+
+  .btn-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20vw;
+  }
+}
+</style>

@@ -1,6 +1,8 @@
 <template>
   <div class="ui-password-input">
-    <input type="text" :value="password" />
+    <div class="ui-password-input-container">
+      <input type="text" :value="password" />
+    </div>
   </div>
 </template>
 
@@ -18,12 +20,23 @@ export default {
 
 <style lang="scss" scoped>
 .ui-password-input {
+  padding: 20px;
+  &-container {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+
   input {
-    border: 3px solid $black;
+    background: none;
+    border: none;
+    color: $white;
     display: inline-flex;
+    font-size: 60px;
     padding: 10px;
     width: 100%;
-    font-size: 20px;
   }
 }
 </style>

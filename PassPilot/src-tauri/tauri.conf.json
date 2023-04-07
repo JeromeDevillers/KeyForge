@@ -40,7 +40,7 @@
       {
         "fullscreen": false,
         "resizable": false,
-        "title": "PassPilot",
+        "title": "",
         "width": 400,
         "height": 800
       }

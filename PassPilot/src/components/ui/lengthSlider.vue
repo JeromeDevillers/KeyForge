@@ -37,9 +37,13 @@ export default {
 </script>
 <style lang="scss" scoped>
 .ui-length-slider {
+  margin: 0 auto;
+  max-width: 80vw;
   input {
+    background: rgba($white, 0.3);
+    border-radius: 100px;
     width: 100%;
-    background: $black;
+    cursor: pointer;
   }
 }
 </style>

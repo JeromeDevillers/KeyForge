@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="ui-select-characters">
     <div>
       <input
         type="checkbox"
