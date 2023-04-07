@@ -1,2 +1,2 @@
 # PassPilot
-Passowrd generator — Project to learn Tauri
+Password generator — Project to learn Tauri
