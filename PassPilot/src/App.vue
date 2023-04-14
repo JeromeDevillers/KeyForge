@@ -64,13 +64,14 @@ export default {
 // @import "./scss/main.scss";
 #appContainer {
   background: $bgColor;
+  color: $white;
   height: 100vh;
   width: 100vw;
 
   .btn-container {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
-    padding: 0 20vw;
+    margin: 0 auto;
   }
 }
 </style>
