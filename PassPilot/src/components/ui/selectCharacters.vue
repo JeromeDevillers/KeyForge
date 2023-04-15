@@ -92,7 +92,7 @@ export default {
 
     span {
       font-family: $primary-font;
-      font-size: 1.2rem;
+      font-size: 0.8rem;
       letter-spacing: -0.04rem;
       font-weight: 500;
     }

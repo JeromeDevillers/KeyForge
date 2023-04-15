@@ -14,8 +14,8 @@
   color: $btnColor;
   cursor: pointer;
   display: block;
-  font-size: 1.2rem;
-  padding: 20px 60px;
+  font-size: 0.8rem;
+  padding: 10px 30px;
   text-align: center;
   transition: background 0.2s ease-in-out;
   width: 100%;
