@@ -35,7 +35,7 @@ export default {
     border: none;
     color: $textColor;
     display: inline-flex;
-    font-size: 60px;
+    font-size: 1.4rem;
     padding: 10px;
     width: 100%;
   }

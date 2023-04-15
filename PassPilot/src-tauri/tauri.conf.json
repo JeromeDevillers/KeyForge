@@ -18,6 +18,11 @@
         "open": true
       }
     },
+    "systemTray": {
+      "iconPath": "icons/icon.png",
+      "iconAsTemplate": true,
+      "menuOnLeftClick": false
+    },
     "bundle": {
       "active": true,
       "icon": [
@@ -35,13 +40,19 @@
     "updater": {
       "active": false
     },
+    "macOSPrivateApi": true,
     "windows": [
       {
         "fullscreen": false,
         "resizable": false,
-        "title": "",
-        "width": 400,
-        "height": 565
+        "title": "PassPilot",
+        "width": 260,
+        "height": 440,
+        "visible": false,
+        "hiddenTitle": true,
+        "decorations": false,
+        "focus": false,
+        "transparent": false
       }
     ]
   }

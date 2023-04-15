@@ -46,7 +46,7 @@ export default {
   span {
     color: $textColor;
     font-family: $primary-font;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     font-weight: 500;
     letter-spacing: -0.04rem;
   }
