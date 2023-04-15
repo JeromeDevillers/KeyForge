@@ -2,34 +2,33 @@
   <div class="ui-select-characters">
     <div class="selectBox">
       <div class="selector">
-        <span>lowercase</span>
+        <span>Lowercase</span>
         <label class="switch">
           <input class="switch-input" type="checkbox" v-model="lowercase" />
           <span class="switch-slider"></span>
         </label>
       </div>
-      <div class="preview">abcde</div>
-    </div>
-    <div class="selectBox">
-      <label class="switch">
-        <input class="switch-input" type="checkbox" v-model="uppercase" />
-        <span class="switch-slider"></span>
-      </label>
-      <label for="uppercase">Uppercase</label>
-    </div>
-    <div class="selectBox">
-      <label class="switch">
-        <input class="switch-input" type="checkbox" v-model="numbers" />
-        <span class="switch-slider"></span>
-      </label>
-      <label for="numbers">Numbers</label>
-    </div>
-    <div class="selectBox">
-      <label class="switch">
-        <input class="switch-input" type="checkbox" v-model="specials" />
-        <span class="switch-slider"></span>
-      </label>
-      <label for="specials">Specials</label>
+      <div class="selector">
+        <span>Uppercase</span>
+        <label class="switch">
+          <input class="switch-input" type="checkbox" v-model="uppercase" />
+          <span class="switch-slider"></span>
+        </label>
+      </div>
+      <div class="selector">
+        <span>Numbers</span>
+        <label class="switch">
+          <input class="switch-input" type="checkbox" v-model="numbers" />
+          <span class="switch-slider"></span>
+        </label>
+      </div>
+      <div class="selector">
+        <span>Specials</span>
+        <label class="switch">
+          <input class="switch-input" type="checkbox" v-model="specials" />
+          <span class="switch-slider"></span>
+        </label>
+      </div>
     </div>
   </div>
 </template>
@@ -46,23 +45,18 @@ export default {
     };
   },
   watch: {
-    lowercase() {
-      this.$emit("characters-change", this.getCharacters());
-    },
-    uppercase() {
-      this.$emit("characters-change", this.getCharacters());
-    },
-    numbers() {
-      this.$emit("characters-change", this.getCharacters());
-    },
-    specials() {
-      this.$emit("characters-change", this.getCharacters());
-    },
+    lowercase: "charactersChanged",
+    uppercase: "charactersChanged",
+    numbers: "charactersChanged",
+    specials: "charactersChanged",
   },
   mounted() {
     this.$emit("characters-change", this.getCharacters());
   },
   methods: {
+    charactersChanged() {
+      this.$emit("characters-change", this.getCharacters());
+    },
     getCharacters() {
       let characters = "";
       if (this.lowercase) {
@@ -75,7 +69,7 @@ export default {
         characters += "0123456789";
       }
       if (this.specials) {
-        characters += "!@#$%^&*()_+~`|}{[]\:;?><,./-=";
+        characters += `!@#$%^&*()_+~\`|}{[]\\\:;?><,./-=`;
       }
       return characters;
     },
@@ -85,118 +79,84 @@ export default {
 
 <style lang="scss" scoped>
 .ui-select-characters {
-  display: grid;
-  grid-gap: 4vw;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  padding: 4vw;
   .selectBox {
-    padding: 1rem;
     align-items: center;
+    color: $textColor;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     justify-content: space-between;
+    padding: 1rem 0;
+    width: 100%;
 
     span {
+      font-family: $primary-font;
       font-size: 1.2rem;
+      letter-spacing: -0.04rem;
+      font-weight: 500;
     }
 
     .selector {
-      display: flex;
       align-items: center;
+      display: flex;
       justify-content: space-between;
     }
-    .preview {
-      display: block;
+  }
+
+  .switch {
+    display: inline-block;
+    height: 2rem;
+    position: relative;
+    width: 3.8rem;
+
+    .switch-input {
+      opacity: 0;
+      width: 0;
+      height: 0;
     }
 
-    input {
-      z-index: 1;
-      position: relative;
-      width: 10px;
-      height: 10px;
-      background: red;
+    .switch-slider {
+      background: $togglerBg;
+      border-radius: 100px;
+      bottom: 0;
+      cursor: pointer;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: background 0.2s;
 
-      &:checked {
-        background: green;
+      &::before {
+        background: $togglerColor;
+        border-radius: 1.6rem;
+        content: "";
+        height: 1.6rem;
+        left: 0.2rem;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: transform 0.2s, width 0.2s, background 0.2s;
+        width: 1.6rem;
       }
     }
-    aspect-ratio: 1/1;
 
-    &:nth-child(1) {
-      background: $tileFirst;
+    .switch-input:checked + .switch-slider {
+      background: $togglerBg;
     }
 
-    &:nth-child(2) {
-      background: $tileSecond;
+    .switch-input:not(:checked):active + .switch-slider::before {
+      width: 2.4rem;
     }
 
-    &:nth-child(3) {
-      background: $tileThird;
+    .switch-input:checked:active + .switch-slider::before {
+      transform: translate(1rem, -50%);
+      width: 2.4rem;
     }
 
-    &:nth-child(4) {
-      background: $tileFourth;
+    .switch-input:checked + .switch-slider::before {
+      transform: translate(1.8rem, -50%);
     }
   }
-}
-
-.switch {
-  position: relative;
-  display: inline-block;
-
-  width: 3.8rem;
-  height: 2rem;
-}
-
-.switch-input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.switch-slider {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  background: #ff4754;
-  border-radius: 1rem;
-
-  transition: background 0.2s;
-  cursor: pointer;
-}
-
-.switch-slider::before {
-  content: "";
-
-  position: absolute;
-  left: 0.2rem;
-  top: 50%;
-  transform: translateY(-50%);
-
-  height: 1.6rem;
-  width: 1.6rem;
-  border-radius: 1.6rem;
-
-  background: blue;
-  transition: transform 0.2s, width 0.2s, background 0.2s;
-}
-
-.switch-input:checked + .switch-slider {
-  background: green;
-}
-
-.switch-input:not(:checked):active + .switch-slider::before {
-  width: 2.4rem;
-}
-
-.switch-input:checked:active + .switch-slider::before {
-  transform: translate(1rem, -50%);
-  width: 2.4rem;
-}
-
-.switch-input:checked + .switch-slider::before {
-  transform: translate(1.8rem, -50%);
 }
 </style>

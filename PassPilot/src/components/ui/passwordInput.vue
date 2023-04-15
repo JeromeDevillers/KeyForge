@@ -33,7 +33,7 @@ export default {
   input {
     background: none;
     border: none;
-    color: $white;
+    color: $textColor;
     display: inline-flex;
     font-size: 60px;
     padding: 10px;

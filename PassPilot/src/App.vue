@@ -3,21 +3,27 @@ import passwordInput from "./components/ui/passwordInput.vue";
 import fragmentsButton from "./components/fragments/button.vue";
 import uiLengthSlider from "./components/ui/lengthSlider.vue";
 import uiSelectCharacters from "./components/ui/selectCharacters.vue";
+import uiNotification from "./components/ui/notification.vue";
 </script>
 
 <template>
-  <div id="appContainer">
-    <passwordInput :password="password" />
-    <uiLengthSlider @value-change="changeLength" :min="10" :max="60" />
-    <span>length: {{ length }}</span>
-    <uiSelectCharacters @characters-change="changeCharset" />
-    <div class="btn-container">
-      <fragmentsButton @click="passwordGenerate">
-        <span>generate</span>
-      </fragmentsButton>
-      <fragmentsButton @click="passwordCopy">
-        <span>copy</span>
-      </fragmentsButton>
+  <div>
+    <transition name="fade">
+      <uiNotification v-if="showNotification" />
+    </transition>
+
+    <div id="appContainer">
+      <passwordInput :password="password" />
+      <uiLengthSlider @value-change="changeLength" :min="4" :max="60" />
+      <uiSelectCharacters @characters-change="changeCharset" />
+      <div class="btn-container">
+        <fragmentsButton @click="passwordGenerate">
+          <span>Generate new password</span>
+        </fragmentsButton>
+        <fragmentsButton @click="passwordCopy">
+          <span>Copy to clipboard</span>
+        </fragmentsButton>
+      </div>
     </div>
   </div>
 </template>
@@ -34,10 +40,13 @@ export default {
     return {
       password: "",
       passwordCharset: "",
+      showNotification: false,
       length: 26,
     };
   },
-  mounted() {},
+  mounted() {
+    this.passwordGenerate();
+  },
   methods: {
     changeCharset(value) {
       this.passwordCharset = value;
@@ -55,6 +64,11 @@ export default {
     },
     passwordCopy() {
       navigator.clipboard.writeText(this.password);
+      // show notification for 2 seconds
+      this.showNotification = true;
+      setTimeout(() => {
+        this.showNotification = false;
+      }, 2000);
     },
   },
 };
@@ -66,12 +80,23 @@ export default {
   background: $bgColor;
   color: $white;
   height: 100vh;
-  width: 100vw;
+  margin: 0 auto;
+  max-width: 94vw;
 
   .btn-container {
     display: inline-flex;
     flex-direction: column;
     margin: 0 auto;
+    width: 100%;
   }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

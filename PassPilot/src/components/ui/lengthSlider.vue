@@ -1,12 +1,12 @@
 <template>
   <div class="ui-length-slider">
+    <span>Password Length</span>
     <input
-      type="range"
+      type="number"
       :min="min"
       :max="max"
-      :value="value"
-      @input="updateValue($event.target.value)"
-    />
+      v-model="value"
+      @input="updateValue(value)" />
   </div>
 </template>
 
@@ -37,13 +37,18 @@ export default {
 </script>
 <style lang="scss" scoped>
 .ui-length-slider {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr auto;
   margin: 0 auto;
-  max-width: 80vw;
-  input {
-    background: rgba($white, 0.3);
-    border-radius: 100px;
-    width: 100%;
-    cursor: pointer;
+
+  input,
+  span {
+    color: $textColor;
+    font-family: $primary-font;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: -0.04rem;
   }
 }
 </style>

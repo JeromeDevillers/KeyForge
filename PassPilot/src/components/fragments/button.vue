@@ -8,17 +8,20 @@
 
 <style lang="scss" scoped>
 .ui-fragments-button {
-  background: $white;
-  border-radius: 100px;
+  background: $btnBg;
+  border-radius: 8px;
   border: none;
+  color: $btnColor;
   cursor: pointer;
-  display: inline-flex;
+  display: block;
   font-size: 1.2rem;
-  padding: 10px;
+  padding: 20px 60px;
+  text-align: center;
   transition: background 0.2s ease-in-out;
+  width: 100%;
 
   &:hover {
-    background: rgba($white, 0.8);
+    background: $btnBgHover;
   }
 }
 </style>
