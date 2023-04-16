@@ -5,7 +5,7 @@
         <div>
           <span class="text-base font-semibold text-gray-700">Lowercase</span>
           <span class="text-xs leading-tight text-gray-400 block font-oxgen">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+            (abcedfghijklmnopqrstuvwxyz)
           </span>
         </div>
         <label class="relative inline-flex items-center cursor-pointer">
@@ -22,7 +22,7 @@
         <div>
           <span class="text-base font-semibold text-gray-700">Uppercase</span>
           <span class="text-xs leading-tight text-gray-400 block font-oxgen">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+            (ABCDEFGHIJKLMNOPQRSTUVWXYZ)
           </span>
         </div>
         <label class="relative inline-flex items-center cursor-pointer">
@@ -39,7 +39,7 @@
         <div>
           <span class="text-base font-semibold text-gray-700">Numbers</span>
           <span class="text-xs leading-tight text-gray-400 block font-oxgen">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+            (0123456789)
           </span>
         </div>
         <label class="relative inline-flex items-center cursor-pointer">
@@ -55,8 +55,9 @@
       <div class="items-center grid grid-cols-layout gap-x-8 mb-4">
         <div>
           <span class="text-base font-semibold text-gray-700">Specials</span>
-          <span class="text-xs leading-tight text-gray-400 block font-oxgen">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+          <span
+            class="text-xs leading-tight text-gray-400 block font-oxgen"
+            v-html="`(!@#$%^&*()_+~\`|}{[]\\\:;?><,./-=)`">
           </span>
         </div>
         <label class="relative inline-flex items-center cursor-pointer">
@@ -116,13 +117,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.ui-select-characters {
-  .selectBox {
-    .selector {
-      grid-template-columns: 1fr auto;
-    }
-  }
-}
-</style>

@@ -12,7 +12,7 @@ import uiNotification from "./components/ui/notification.vue";
       <uiNotification v-if="showNotification" />
     </transition>
 
-    <div id="appContainer" class="bg-teal-50 font-oxgen">
+    <div id="appContainer" class="bg-teal-50 font-oxgen p-6 m-0">
       <passwordInput :password="password" />
       <uiLengthSlider
         class="mb-4"
@@ -87,10 +87,6 @@ export default {
 
 <style lang="scss">
 // @import "./scss/main.scss";
-#appContainer {
-  margin: 0 auto;
-  padding: 1rem;
-}
 
 .fade-enter-active,
 .fade-leave-active {
