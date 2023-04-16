@@ -7,5 +7,5 @@ Password generator — Personal Project to learn Tauri
 ## Roadmap 🚧
 
 - [x] Improve UX/UI
-- [ ] Work on wording
+- [ ] Work On Wording
 - [ ] Clean Code
