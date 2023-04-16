@@ -1,4 +1,4 @@
-# PassPilot
+# KeyForge
 
 Password generator — Personal Project to learn Tauri
 
@@ -6,5 +6,6 @@ Password generator — Personal Project to learn Tauri
 
 ## Roadmap 🚧
 
-- [ ] Improve UX/UI
+- [x] Improve UX/UI
+- [ ] Work on wording
 - [ ] Clean Code
