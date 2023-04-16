@@ -1,5 +1,5 @@
 {
-  "name": "PassPilot",
+  "name": "KeyForge",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "@tauri-apps/api": "^1.2.0",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.21",
     "sass": "^1.61.0",
+    "tailwindcss": "^3.3.1",
     "vue": "^3.2.45"
   },
   "devDependencies": {

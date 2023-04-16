@@ -12,16 +12,27 @@ import uiNotification from "./components/ui/notification.vue";
       <uiNotification v-if="showNotification" />
     </transition>
 
-    <div id="appContainer">
+    <div id="appContainer" class="bg-teal-50 font-oxgen">
       <passwordInput :password="password" />
-      <uiLengthSlider @value-change="changeLength" :min="4" :max="60" />
+      <uiLengthSlider
+        class="mb-4"
+        @value-change="changeLength"
+        :min="4"
+        :max="60" />
       <uiSelectCharacters @characters-change="changeCharset" />
-      <div class="btn-container">
+      <hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-200" />
+      <div class="gap-y-4 grid">
         <fragmentsButton @click="passwordGenerate">
           <span>Generate new password</span>
         </fragmentsButton>
         <fragmentsButton @click="passwordCopy">
           <span>Copy to clipboard</span>
+          <svg
+            class="fill-current w-4 h-4 mr-2"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20">
+            <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+          </svg>
         </fragmentsButton>
       </div>
     </div>
@@ -74,21 +85,11 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 // @import "./scss/main.scss";
 #appContainer {
-  background: $bgColor;
-  color: $white;
-  height: 100vh;
   margin: 0 auto;
-  max-width: 94vw;
-
-  .btn-container {
-    display: inline-flex;
-    flex-direction: column;
-    margin: 0 auto;
-    width: 100%;
-  }
+  padding: 1rem;
 }
 
 .fade-enter-active,

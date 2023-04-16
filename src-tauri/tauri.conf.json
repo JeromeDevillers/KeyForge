@@ -7,7 +7,7 @@
     "withGlobalTauri": false
   },
   "package": {
-    "productName": "PassPilot",
+    "productName": "KeyForge",
     "version": "0.0.0"
   },
   "tauri": {
@@ -31,7 +31,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.passpilot",
+      "identifier": "com.KeyForge",
       "targets": "all"
     },
     "security": {
@@ -45,14 +45,14 @@
       {
         "fullscreen": false,
         "resizable": false,
-        "title": "PassPilot",
-        "width": 260,
-        "height": 440,
+        "title": "KeyForge",
+        "width": 340,
+        "height": 595,
         "visible": false,
         "hiddenTitle": true,
         "decorations": false,
         "focus": false,
-        "transparent": false
+        "transparent": true
       }
     ]
   }

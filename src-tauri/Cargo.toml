@@ -1,8 +1,8 @@
 [package]
-name = "PassPilot"
+name = "key_forge"
 version = "0.0.0"
-description = "A Tauri App"
-authors = ["you"]
+description = "Generate your password"
+authors = ["Devillers Jerome"]
 license = ""
 repository = ""
 edition = "2021"
